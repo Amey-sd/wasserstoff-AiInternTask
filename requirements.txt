@@ -1,0 +1,4 @@
+pymongo
+pdfminer.six
+nltk
+sumy
