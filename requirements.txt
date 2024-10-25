@@ -2,3 +2,4 @@ pymongo
 pdfminer.six
 nltk
 sumy
+scikit-learn
