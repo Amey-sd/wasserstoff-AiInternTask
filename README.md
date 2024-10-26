@@ -30,38 +30,29 @@ pip install -r requirements.txt
 
 ```plaintext
 📂 pdf_processing_app/
- ┣ 📜 main.py                 # Main application for PDF processing
+ ┣ 📜 main.py                 # Main application for pipeline
+ ┣ 📜 summarizer.py           # Script for summarizing and storing in MongoDB
  ┣ 📜 load_pdfs.py            # Script for downloading PDFs from URLs in JSON
  ┣ 📜 requirements.txt        # Lists dependencies for the project
  ┣ 📜 README.md               # Project documentation
- ┗ 📂 dataset/                # Directory where PDFs and Dataset.json are stored
+ ┗ 📂 dataset/                # Directory where PDFs and Dataset.json must be stored
 ```
 
 ## Usage
 
-### Step 1: Download PDFs
-
-The `load_pdfs.py` script fetches PDFs from URLs stored in `Dataset.json`:
-
-1. Ensure `Dataset.json` (JSON format: `{ "pdf_name": "pdf_url" }`) is located in the `/dataset` directory.
-2. Run `load_pdfs.py` to download the PDFs:
-
-   ```bash
-   python load_pdfs.py
-   ```
-
-### Step 2: Set up MongoDB
+### Step 1: Set up MongoDB
 
 1. Start your MongoDB server (adjust connection string as needed).
 2. Modify `main.py` if your MongoDB configuration differs.
 
-### Step 3: Process PDFs
+### Step 2: Run file
 
-After downloading, process the PDFs with `main.py`:
+Run main.py
 
 ```bash
 python main.py
 ```
+It will ask user if you want to first load pdfs from a json file
 
 ### Output
 
@@ -69,8 +60,8 @@ Processed data (summary and keywords) for each PDF is stored in MongoDB, under a
 
 ## Customization
 
-- **Summary Length**: Adjust summary percentage in the `generate_summary` function in `main.py`.
-- **Thread Count**: Change the number of concurrent threads by setting `max_workers` in `process_pdfs_in_directory` in `main.py`.
+- **Summary Length**: Adjust summary percentage in the `generate_summary` function in `summairzer.py`.
+- **Thread Count**: Change the number of concurrent threads by setting `max_workers` in `process_pdfs_in_directory` in `summarizer.py`.
 
 ## License
 
