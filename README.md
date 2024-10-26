@@ -4,7 +4,7 @@ This project provides a straightforward yet powerful solution for processing PDF
 
 ## Features
 
-- **PDF Downloading**: Automatically download PDFs from URLs listed in a JSON file.
+- **PDF Downloading**: Automatically download PDFs from URLs listed in a JSON file (only if required).
 - **Text Extraction**: Extracts text from PDFs using `pdfminer`.
 - **Summary Generation**: Summarizes documents to 20% of their length with Latent Semantic Analysis (LSA).
 - **Keyword Extraction**: Uses TF-IDF vectorization to find keywords.
@@ -65,7 +65,7 @@ python main.py
 
 ### Output
 
-Processed data (summary and keywords) for each PDF is stored in MongoDB.
+Processed data (summary and keywords) for each PDF is stored in MongoDB, under a new Database.
 
 ## Customization
 
