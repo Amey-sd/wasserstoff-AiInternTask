@@ -10,7 +10,6 @@ import time
 import nltk
 
 nltk.download('punkt')
-
 # Initialize MongoDB client and collection
 client = MongoClient('mongodb://localhost:27017/')
 db = client['PDFScratcher'] 
@@ -77,20 +76,14 @@ def process_pdf(pdf_path):
     except Exception as e:
         print(f"Error processing {pdf_path}: {e}")
 
-# Function to read and process all PDF files in a directory with limited threads
-def process_pdfs_in_directory(directory):
-    print(f"Reading PDF files from directory: {directory}")
-    pdf_files = [os.path.join(directory, filename) for filename in os.listdir(directory) if filename.endswith('.pdf')]
-    
-    # Use ThreadPoolExecutor to limit threads to 5
-    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-        executor.map(process_pdf, pdf_files)
-        
-# Main function to start the whole process
-def main():
-    pdf_folder_path = r'E:\repos\wasserstoff\dataset'
-    print("Starting the PDF processing application...")
-    process_pdfs_in_directory(pdf_folder_path)
 
-if __name__ == "__main__":
-    main()
+class summarizer:
+    # Function to read and process all PDF files in a directory with limited threads
+    def process_pdfs_in_directory(directory):
+        print(f"Reading PDF files from directory: {directory}")
+        pdf_files = [os.path.join(directory, filename) for filename in os.listdir(directory) if filename.endswith('.pdf')]
+        
+        # Use ThreadPoolExecutor to limit threads to 5
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+            executor.map(process_pdf, pdf_files)
+
